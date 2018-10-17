@@ -8,6 +8,9 @@ class AddressBook {
         this.contacts.push(info);
         this.contacts.sort;
     }
+    deleteAt(index) {
+        this.contacts.splice(index, 1);
+    }
 }
 
 class Contact {
@@ -22,3 +25,9 @@ class Contact {
 
 
 let addressBook = new AddressBook();
+let aaron = new Contact ("Aaron", "schoeffa@gmail.com", "(248) 880-9849", "me");
+let liz = new Contact ("Liz", "curby17@gmail.com", "(734) 645-3270", "fiance" );
+
+addressBook.add(aaron);
+addressBook.add(liz);
+
