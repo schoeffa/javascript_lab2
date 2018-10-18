@@ -1,7 +1,8 @@
 "use strict"
+
 class AddressBook {
     constructor() {
-        this.contacts =[ new Contact("Einstein", "ein@thestein.me", "299.792.4580", "Hero"),  new Contact("Euler", "leonhard@euler.net", "271.828.1828", "Hero"), new Contact("Jenny", "jenny@neverforget.com", "313.867.5309", "Friend")];
+        this.contacts = [new Contact("Einstein", "ein@thestein.me", "299.792.4580", "Hero"), new Contact("Euler", "leonhard@euler.net", "271.828.1828", "Hero"), new Contact("Jenny", "jenny@neverforget.com", "313.867.5309", "Friend")];
     }
     add(info) {
         this.contacts.push(info);
@@ -10,9 +11,9 @@ class AddressBook {
         this.contacts.splice(index, 1);
     }
     deleteByName(name) {
-        for(let person of this.contacts){
-            if(person.name === name){
-            this.contacts.splice(this.contacts.indexOf(person), 1);
+        for (let person of this.contacts) {
+            if (person.name === name) {
+                this.contacts.splice(this.contacts.indexOf(person), 1);
             }
         }
 
@@ -34,40 +35,32 @@ class Contact {
 }
 
 let addressBook = new AddressBook();
-let looper = true;
-while(looper) {
-    let choice = prompt("Would you like to add, delete, print, or quit?");
-    switch(choice) {
-        case "add":
-            let name = prompt("Name?");
-            let email = prompt("Email?");
-            let phone = prompt("Phone?");
-            let relation = prompt("Relation?");
-            let contact = new Contact(name, email, phone, relation);
-            addressBook.add(contact);
-            break;
-        case "delete":
-            let delType = prompt("Delete by index or name?");
-            if (delType === "index") {
-                let index = prompt("Index to delete?");
-                addressBook.deleteAt(index);
-            } else if (delType === "name") {
-                let delName = prompt("Name of contact to delete?");
-                addressBook.deleteByName(delName);
-            }
-            
-            break;
-        case "print":
-            addressBook.print();
-            break;
-        case "quit":
-            console.log("Farewell.");
-            looper = false;
-            break;
-        default:
-            alert("That is not a valid option.");
-            break;
-    }
-    
-}
 
+let choice;
+switch (choice) {
+    case "add":
+        let name = prompt("Name?");
+        let email = prompt("Email?");
+        let phone = prompt("Phone?");
+        let relation = prompt("Relation?");
+        addressBook.add(new Contact(name, email, phone, relation));
+        break;
+    case "delete":
+        let delType = prompt("Delete by index or name?");
+        if (delType === "index") {
+            addressBook.deleteAt(prompt("Index to delete?"));
+        } else if (delType === "name") {
+            addressBook.deleteByName(prompt("Name of contact to delete?"));
+        }
+        break;
+    case "print":
+        addressBook.print();
+        break;
+    case "quit":
+        console.log("Farewell.");
+        looper = false;
+        break;
+    default:
+        break;
+
+}
