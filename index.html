@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Document</title>
 </head>
+
 <body>
+    <!-- Loads in audio files to play when adding and removing contacts -->
+    <audio src="sounds/dustyroom_cartoon_bubble_pop.mp3" id="bubble"></audio>
+    <audio src="sounds/cartoon_slide_whistle_descend_3.mp3" id="slide"></audio>
+
+    <!-- Section containing input form -->
     <section class="myContacts">
+        <p>My Contacts</p>
         <form class="input-form">
             <input type="text" class="contactsInput" placeholder="Name">
             <input type="text" class="contactsInput" placeholder="Email">
             <input type="text" class="contactsInput" placeholder="Phone">
-            <select>
-                <option value="mother">Mother</option>
-                <option value="father">Father</option>
-                <option value="sister">Sister</option>
-                <option value="brother">Brother</option>
-                <option value="son">Son</option>
-                <option value="daughter">Daughter</option>
-                <option value="aunt">Aunt</option>
-                <option value="uncle">Uncle</option>
-                <option value="cousin">Cousin</option>
-                <option value="niece">Niece</option>
-                <option value="nephew">Nephew</option>
-                <option value="grandfather">Grandfather</option>
-                <option value="grandmother">Grandmother</option>
-                <option value="friend">Friend</option>
-                <option value="neighbor">Neighbor</option>
-                <option value="coworker">Coworker</option>
+            <select class="contactsInput">
+                <option value="Family">Family</option>
+                <option value="Friend">Friend</option>
+                <option value="Neighbor">Neighbor</option>
+                <option value="Coworker">Coworker</option>
             </select>
-            <button type="button" class=addContact>Add</button>
+            <button type="button" id=addContact>Add</button>
         </form>
     </section>
 
+    <!-- Empty section to contain contact sections when added -->
     <section class=contactList></section>
 
-        <script src="script.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
+
 </html>
